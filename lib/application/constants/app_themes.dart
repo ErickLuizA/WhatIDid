@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class AppThemes {
   static final dark = ThemeData(
-    primaryColor: Color(0XFF546E7A),
-    primaryColorLight: Color(0XFF819CA9),
-    primaryColorDark: Color(0XFF29434E),
-    accentColor: Color(0XFFFFAB91),
+    primaryColor: Colors.blueGrey[700],
+    primaryColorLight: Colors.blueGrey[500],
+    primaryColorDark: Colors.blueGrey[900],
+    accentColor: Colors.red[200],
     primaryTextTheme: TextTheme(
       bodyText1: TextStyle(
-        color: Colors.white10,
+        color: Colors.white,
         fontSize: 16,
       ),
       bodyText2: TextStyle(
@@ -16,22 +16,25 @@ class AppThemes {
         fontSize: 14,
       ),
       headline5: TextStyle(
-        color: Colors.white10,
+        color: Colors.white,
         fontSize: 18,
       ),
       headline6: TextStyle(
-        color: Colors.white10,
+        color: Colors.white,
         fontSize: 20,
       ),
     ),
     accentTextTheme: TextTheme(
       bodyText1: TextStyle(
-        color: Colors.black12,
+        color: Colors.black,
         fontSize: 16,
       ),
     ),
+    primaryIconTheme: IconThemeData(
+      color: Colors.blueGrey[900],
+    ),
     iconTheme: IconThemeData(
-      color: Color(0XFF546E7A),
+      color: Colors.blueGrey[700],
     ),
     accentIconTheme: IconThemeData(
       color: Colors.grey,
@@ -46,7 +49,7 @@ class AppThemes {
     accentColor: Colors.pink[200],
     primaryTextTheme: TextTheme(
       bodyText1: TextStyle(
-        color: Colors.black12,
+        color: Colors.black,
         fontSize: 16,
       ),
       bodyText2: TextStyle(
@@ -54,22 +57,25 @@ class AppThemes {
         fontSize: 14,
       ),
       headline5: TextStyle(
-        color: Colors.black12,
+        color: Colors.black,
         fontSize: 18,
       ),
       headline6: TextStyle(
-        color: Colors.black12,
+        color: Colors.black,
         fontSize: 20,
       ),
     ),
     accentTextTheme: TextTheme(
       bodyText1: TextStyle(
-        color: Colors.black12,
+        color: Colors.black,
         fontSize: 16,
       ),
     ),
+    primaryIconTheme: IconThemeData(
+      color: Colors.blueGrey[400],
+    ),
     iconTheme: IconThemeData(
-      color: Color(0XFF546E7A),
+      color: Colors.blueGrey[200],
     ),
     accentIconTheme: IconThemeData(
       color: Colors.grey,
