@@ -9,7 +9,7 @@ class FabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      foregroundColor: Theme.of(context).primaryColor,
+      foregroundColor: Theme.of(context).primaryTextTheme.bodyText1?.color,
       onPressed: () {
         Navigator.pushNamed(context, AppRoutes.CREATE, arguments: {
           "category": category,

@@ -6,15 +6,20 @@ class AppBarWidget extends AppBar {
     required String title,
     String? category,
     required BuildContext context,
-    required int index,
+    required bool showMenu,
+    required bool showSearch,
   }) : super(
           title: Text(
             title,
             style: Theme.of(context).primaryTextTheme.bodyText1,
           ),
           actions: [
-            if (index == 2)
+            if (showMenu)
               PopupMenuButton(
+                icon: Icon(
+                  Icons.more_vert,
+                  color: Theme.of(context).primaryTextTheme.bodyText1?.color,
+                ),
                 itemBuilder: (context) {
                   return [
                     PopupMenuItem(
@@ -23,16 +28,20 @@ class AppBarWidget extends AppBar {
                   ];
                 },
               ),
-            if (index == 0 || index == 1)
+            if (showSearch)
               IconButton(
                 icon: Icon(
                   Icons.search,
                   color: Theme.of(context).primaryTextTheme.bodyText1?.color,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, AppRoutes.SEARCH, arguments: {
-                    "category": category,
-                  });
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.SEARCH,
+                    arguments: {
+                      "category": category,
+                    },
+                  );
                 },
               ),
             SizedBox(width: 10),
