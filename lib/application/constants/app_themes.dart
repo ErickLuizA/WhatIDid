@@ -5,7 +5,7 @@ class AppThemes {
     primaryColor: Colors.blueGrey[700],
     primaryColorLight: Colors.blueGrey[500],
     primaryColorDark: Colors.blueGrey[900],
-    accentColor: Colors.red[200],
+    accentColor: Colors.red[300],
     primaryTextTheme: TextTheme(
       bodyText1: TextStyle(
         color: Colors.white,
@@ -43,10 +43,10 @@ class AppThemes {
   );
 
   static final light = ThemeData(
-    primaryColor: Colors.blueGrey[200],
-    primaryColorLight: Colors.blueGrey[100],
-    primaryColorDark: Colors.blueGrey[300],
-    accentColor: Colors.pink[200],
+    primaryColor: Colors.blueGrey[300],
+    primaryColorLight: Colors.blueGrey[200],
+    primaryColorDark: Colors.blueGrey[400],
+    accentColor: Colors.red[200],
     primaryTextTheme: TextTheme(
       bodyText1: TextStyle(
         color: Colors.black,
@@ -72,10 +72,10 @@ class AppThemes {
       ),
     ),
     primaryIconTheme: IconThemeData(
-      color: Colors.blueGrey[400],
+      color: Colors.blueGrey[500],
     ),
     iconTheme: IconThemeData(
-      color: Colors.blueGrey[200],
+      color: Colors.blueGrey[400],
     ),
     accentIconTheme: IconThemeData(
       color: Colors.grey,
