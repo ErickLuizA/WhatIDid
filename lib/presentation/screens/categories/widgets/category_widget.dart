@@ -31,12 +31,16 @@ class CategoryWidget extends StatelessWidget {
   }
 
   Widget showImage() {
-    if (category.image.contains('assets/')) {
-      return SvgPicture.asset(category.image);
+    if (category.image == null) {
+      return SvgPicture.asset('assets/images/notebook.svg');
+    }
+
+    if (category.image!.contains('assets/')) {
+      return SvgPicture.asset(category.image!);
     }
 
     return Image.file(
-      File(category.image),
+      File(category.image!),
     );
   }
 }

@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 // ignore: must_be_immutable
 class Category extends Equatable {
   int? id;
-  final String image;
+  final String? image;
   final String name;
 
   Category({
