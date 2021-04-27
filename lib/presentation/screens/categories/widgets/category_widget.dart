@@ -12,35 +12,50 @@ class CategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(category);
-
-    return Column(
-      children: [
-        showImage(),
-        showText(context),
-      ],
+    return Container(
+      child: Column(
+        children: [
+          showImage(context),
+          showText(context),
+        ],
+      ),
     );
   }
 
   Widget showText(BuildContext context) {
     if (category.name == 'Daily') {
-      return Text(AppLocalizations.of(context).translate('daily'));
+      return Text(
+        AppLocalizations.of(context).translate('daily'),
+        style: Theme.of(context).primaryTextTheme.bodyText1,
+      );
     }
 
-    return Text(category.name);
+    return Text(
+      category.name,
+      style: Theme.of(context).primaryTextTheme.bodyText1,
+    );
   }
 
-  Widget showImage() {
+  Widget showImage(BuildContext context) {
+    final width = MediaQuery.of(context).size.width / 2.5;
+
     if (category.image == null) {
-      return SvgPicture.asset('assets/images/notebook.svg');
+      return SvgPicture.asset(
+        'assets/images/notebook.svg',
+        width: width,
+      );
     }
 
     if (category.image!.contains('assets/')) {
-      return SvgPicture.asset(category.image!);
+      return SvgPicture.asset(
+        category.image!,
+        width: width,
+      );
     }
 
     return Image.file(
       File(category.image!),
+      width: width,
     );
   }
 }

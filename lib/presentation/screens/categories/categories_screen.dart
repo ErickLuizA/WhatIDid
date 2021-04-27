@@ -47,12 +47,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           }
 
           if (state is LoadedState) {
-            return GridView.count(
-              crossAxisCount: 2,
-              semanticChildCount: state.result.length,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              children: state.result.map((e) => CategoryWidget(e)).toList(),
+            return Container(
+              padding: EdgeInsets.only(top: 20),
+              child: GridView.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                children: state.result.map((e) => CategoryWidget(e)).toList(),
+              ),
             );
           }
 
