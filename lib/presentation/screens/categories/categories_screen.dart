@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:whatidid/application/providers/viewmodels/categories_viewmodel.dart'
     hide State;
+import 'package:whatidid/presentation/widgets/empty_widget.dart';
 
 import 'widgets/category_widget.dart';
 
@@ -43,38 +43,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           }
 
           if (state is EmptyState) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "There is nothing here",
-                  style: Theme.of(context).primaryTextTheme.bodyText1,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Press the",
-                      style: Theme.of(context).primaryTextTheme.bodyText1,
-                    ),
-                    Icon(
-                      Icons.add_circle,
-                      color: Theme.of(context).accentColor,
-                    ),
-                    Text(
-                      "to add a entrie",
-                      style: Theme.of(context).primaryTextTheme.bodyText1,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                SvgPicture.asset(
-                  'assets/images/empty.svg',
-                  width: MediaQuery.of(context).size.width / 2,
-                ),
-              ],
-            );
+            return EmptyWidget("category");
           }
 
           if (state is LoadedState) {
