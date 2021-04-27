@@ -11,7 +11,7 @@ class AppBarWidget extends AppBar {
   }) : super(
           title: Text(
             title,
-            style: Theme.of(context).primaryTextTheme.bodyText1,
+            style: Theme.of(context).primaryTextTheme.headline5,
           ),
           actions: [
             if (showMenu)

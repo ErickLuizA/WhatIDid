@@ -9,7 +9,7 @@ class AppThemes {
     primaryTextTheme: TextTheme(
       bodyText1: TextStyle(
         color: Colors.white,
-        fontSize: 16,
+        fontSize: 14,
       ),
       bodyText2: TextStyle(
         color: Colors.grey,
