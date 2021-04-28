@@ -3,7 +3,14 @@
     "categories": "Categories",
     "calendar": "Calendar",
     "settings": "Settings",
+    "daily": "Daily",
     "dark_theme": "Dark Theme",
     "language": "Language",
-    "home_category": "Home Category"
+    "home_category": "Home Category",
+
+    "nothing_here": "There is nothing here",
+    "press_the": "Press the",
+    "to_add": "to add a",
+    "entrie": "entrie",
+    "category": "category"
 }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:whatidid/presentation/app_localizations.dart';
 
 class EmptyWidget extends StatelessWidget {
   final String text;
   const EmptyWidget(this.text);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -11,14 +13,14 @@ class EmptyWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "There is nothing here",
+          AppLocalizations.of(context).translate("nothing_here"),
           style: Theme.of(context).primaryTextTheme.bodyText1,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Press the",
+              AppLocalizations.of(context).translate("press_the"),
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
             Icon(
@@ -26,7 +28,7 @@ class EmptyWidget extends StatelessWidget {
               color: Theme.of(context).accentColor,
             ),
             Text(
-              "to add a $text",
+              "${AppLocalizations.of(context).translate("to_add")} ${AppLocalizations.of(context).translate(text)}",
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
           ],
