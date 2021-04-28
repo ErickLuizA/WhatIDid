@@ -27,22 +27,23 @@ class _RootWidgetState extends State<RootWidget> {
     context.read(homeCategoryControllerProvider).load();
     context.read(themeControllerProvider).load();
     context.read(languageControllerProvider).loadLocale();
-    context.read(databaseProvider).openDatabase();
+    context.read(databaseProvider).openDatabase().then((_) {
+      SharedPreferences.getInstance().then((value) {
+        // Check if daily category is already in database
 
-    // Check if daily category is already in database
-    SharedPreferences.getInstance().then((value) {
-      final result = value.getBool('DAILY');
+        final result = value.getBool('DAILY');
 
-      if (result == null) {
-        context.read(categoriesDaoProvider).insert(
-              Category(
-                image: 'assets/images/notebook.svg',
-                name: 'Daily',
-              ).toMap(),
-            );
+        if (result == null) {
+          context.read(categoriesDaoProvider).insert(
+                Category(
+                  image: 'assets/images/notebook.svg',
+                  name: 'Daily',
+                ).toMap(),
+              );
 
-        value.setBool('DAILY', true);
-      }
+          value.setBool('DAILY', true);
+        }
+      });
     });
   }
 

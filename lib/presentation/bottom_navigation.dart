@@ -19,7 +19,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int currentIndex = 0;
 
   final screens = [
-    HomeScreen(),
+    HomeScreen('Daily'),
     CategoriesScreen(),
     CalendarScreen(),
     SettingsScreen(),
@@ -40,6 +40,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
     });
   }
 
+  bool get haveMenu => currentIndex == 2;
+  bool get haveSearch => currentIndex == 0 || currentIndex == 1;
+  bool get haveFab => currentIndex == 3 || currentIndex == 2;
+
   @override
   Widget build(BuildContext context) {
     return Consumer(
@@ -59,13 +63,20 @@ class _BottomNavigationState extends State<BottomNavigation> {
             title: screenNames[currentIndex],
             category: categories[currentIndex],
             context: context,
-            showMenu: currentIndex == 2,
-            showSearch: currentIndex == 0 || currentIndex == 1,
+            showMenu: haveMenu,
+            showSearch: haveSearch,
           ),
-          body: screens[currentIndex],
-          floatingActionButton: currentIndex == 3 || currentIndex == 2
-              ? null
-              : FabWidget(categories[currentIndex]),
+          body: Builder(
+            builder: (context) {
+              if (currentIndex == 0) {
+                return HomeScreen(homeCategory);
+              }
+
+              return screens[currentIndex];
+            },
+          ),
+          floatingActionButton:
+              haveFab ? null : FabWidget(categories[currentIndex]),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             backgroundColor: Theme.of(context).primaryColorLight,
