@@ -16,7 +16,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   void initState() {
     super.initState();
 
-    context.read(categoriesViewModelProvider.notifier).getAll();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      context.read(categoriesViewModelProvider.notifier).getAll();
+    });
   }
 
   @override
