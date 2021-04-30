@@ -38,6 +38,7 @@ class CategoryWidget extends StatelessWidget {
 
   Widget showImage(BuildContext context) {
     final width = MediaQuery.of(context).size.width / 2.5;
+    final height = MediaQuery.of(context).size.height / 5;
 
     if (category.image == null) {
       return SvgPicture.asset(
@@ -56,6 +57,17 @@ class CategoryWidget extends StatelessWidget {
     return Image.file(
       File(category.image!),
       width: width,
+      height: height,
+      errorBuilder: (
+        BuildContext context,
+        Object exception,
+        StackTrace? stackTrace,
+      ) {
+        return SvgPicture.asset(
+          'assets/images/notebook.svg',
+          width: width,
+        );
+      },
     );
   }
 }
