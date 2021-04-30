@@ -6,15 +6,15 @@ import 'package:equatable/equatable.dart';
 class Entrie extends Equatable {
   int? id;
   final String title;
-  final List<String> images;
-  final DateTime dateTime;
+  final String? image;
+  final DateTime? dateTime;
   final String content;
   final String category;
 
   Entrie({
     this.id,
     required this.title,
-    required this.images,
+    required this.image,
     required this.dateTime,
     required this.content,
     required this.category,
@@ -24,7 +24,7 @@ class Entrie extends Equatable {
   List<Object?> get props => [
         id,
         title,
-        images,
+        image,
         dateTime,
         content,
         category,
@@ -34,7 +34,7 @@ class Entrie extends Equatable {
     return {
       'id': id,
       'title': title,
-      'images': images,
+      'image': image,
       'dateTime': dateTime.toString(),
       'content': content,
       'category': category,
@@ -44,8 +44,8 @@ class Entrie extends Equatable {
   factory Entrie.fromMap(Map<String, dynamic> map, {int? id}) {
     return Entrie(
       id: id ?? map['id'],
+      image: map['image'],
       title: map['title'],
-      images: List<String>.from(map['images']),
       dateTime: DateTime.parse(map['dateTime']),
       content: map['content'],
       category: map['category'],

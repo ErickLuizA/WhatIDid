@@ -12,8 +12,29 @@ class CategoriesDao {
 
   final _storeMap = intMapStoreFactory.store(CATEGORIES);
 
+  Future<bool> findByName(String value) async {
+    final result = await _storeMap.findFirst(
+      _database,
+      finder: Finder(
+        filter: Filter.equals('name', value),
+      ),
+    );
+
+    if (result == null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   Future<void> insert(Map<String, dynamic> data) async {
-    await _storeMap.add(_database, data);
+    final alreadyExists = await findByName(data['name']);
+
+    if (alreadyExists) {
+      throw Exception(["Already exists"]);
+    } else {
+      await _storeMap.add(_database, data);
+    }
   }
 
   Future<void> delete(int id) async {

@@ -10,10 +10,23 @@ class EntriesDao {
 
   EntriesDao(this._database);
 
-  final storeMap = intMapStoreFactory.store(ENTRIES);
+  final _storeMap = intMapStoreFactory.store(ENTRIES);
+
+  Future<void> insert(Map<String, dynamic> data) async {
+    await _storeMap.add(_database, data);
+  }
+
+  Future<void> delete(int id) async {
+    await _storeMap.delete(
+      _database,
+      finder: Finder(
+        filter: Filter.byKey(id),
+      ),
+    );
+  }
 
   Future<List<Entrie>> getAll(String category) async {
-    final result = await storeMap
+    final result = await _storeMap
         .query(finder: Finder(filter: Filter.equals('category', category)))
         .getSnapshots(_database);
 

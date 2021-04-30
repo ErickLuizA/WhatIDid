@@ -8,6 +8,14 @@ class CategoriesRepository {
 
   CategoriesRepository(this._categoriesDao);
 
+  Future<void> insert(Map<String, dynamic> data) async {
+    return await _categoriesDao.insert(data);
+  }
+
+  Future<void> delete(int id) async {
+    return await _categoriesDao.delete(id);
+  }
+
   Future<List<Category>> getAll() async {
     return await _categoriesDao.getAll();
   }

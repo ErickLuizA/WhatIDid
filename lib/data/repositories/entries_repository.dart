@@ -7,6 +7,10 @@ class EntriesRepository {
 
   EntriesRepository(this._entriesDao);
 
+  Future<void> insert(Map<String, dynamic> data) async {
+    return await _entriesDao.insert(data);
+  }
+
   Future<List<Entrie>> getAll(String category) async {
     return await _entriesDao.getAll(category);
   }
