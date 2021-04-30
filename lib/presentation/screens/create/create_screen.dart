@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:whatidid/presentation/screens/create/widgets/create_category_widget.dart';
+import 'package:whatidid/presentation/screens/create/widgets/create_entrie_widget.dart';
 
 class CreateScreen extends StatelessWidget {
   final String? category;
@@ -9,12 +11,10 @@ class CreateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(category);
-    // if category is null
-    // render create category
-    // else render create entrie
-    return Scaffold(
-      appBar: AppBar(),
-    );
+    if (category == null) {
+      return CreateCategoryWidget();
+    } else {
+      return CreateEntrieWidget(category!);
+    }
   }
 }
