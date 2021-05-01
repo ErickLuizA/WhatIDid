@@ -54,13 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
           }
 
           if (state is LoadedState) {
-            return ListView.builder(
-              itemCount: state.result.length,
-              itemBuilder: (context, index) {
-                final entrie = state.result[index];
+            return Padding(
+              padding: const EdgeInsets.only(top: 20, left: 20),
+              child: ListView.builder(
+                itemCount: state.result.length,
+                itemBuilder: (context, index) {
+                  final entrie = state.result[index];
 
-                return EntrieWidget(entrie);
-              },
+                  return EntrieWidget(entrie);
+                },
+              ),
             );
           }
 
