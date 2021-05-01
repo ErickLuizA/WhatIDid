@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatidid/presentation/bottom_navigation.dart';
+import 'package:whatidid/presentation/screens/category/category_screen.dart';
 import 'package:whatidid/presentation/screens/create/create_screen.dart';
 import 'package:whatidid/presentation/screens/entrie/entrie_screen.dart';
 import 'package:whatidid/presentation/screens/search/search_screen.dart';
@@ -29,19 +30,19 @@ Map<String, Route Function(Map<String, dynamic> args)> routes = {
       },
     );
   },
-  AppRoutes.CREATE: (Map<String, dynamic> args) {
+  AppRoutes.SEARCH: (Map<String, dynamic> args) {
     return MaterialPageRoute(
       builder: (context) {
-        return CreateScreen(
+        return SearchScreen(
           category: args['category'],
         );
       },
     );
   },
-  AppRoutes.SEARCH: (Map<String, dynamic> args) {
+  AppRoutes.CREATE: (Map<String, dynamic> args) {
     return MaterialPageRoute(
       builder: (context) {
-        return SearchScreen(
+        return CreateScreen(
           category: args['category'],
         );
       },
@@ -52,6 +53,15 @@ Map<String, Route Function(Map<String, dynamic> args)> routes = {
       builder: (context) {
         return EntrieScreen(
           args['entrie'],
+        );
+      },
+    );
+  },
+  AppRoutes.CATEGORY: (Map<String, dynamic> args) {
+    return MaterialPageRoute(
+      builder: (context) {
+        return CategoryScreen(
+          args['category'],
         );
       },
     );

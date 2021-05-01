@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:whatidid/application/constants/app_routes.dart';
 import 'package:whatidid/domain/models/category.dart';
 import 'package:whatidid/presentation/app_localizations.dart';
 
@@ -12,12 +13,19 @@ class CategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          showImage(context),
-          showText(context),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(AppRoutes.CATEGORY, arguments: {
+          "category": category,
+        });
+      },
+      child: Container(
+        child: Column(
+          children: [
+            showImage(context),
+            showText(context),
+          ],
+        ),
       ),
     );
   }
