@@ -7,7 +7,7 @@ class Entrie extends Equatable {
   int? id;
   final String title;
   final String? image;
-  final DateTime? dateTime;
+  final DateTime dateTime;
   final String content;
   final String category;
 
