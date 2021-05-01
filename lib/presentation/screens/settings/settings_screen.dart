@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatidid/application/providers/controllers/home_category_controller.dart';
 import 'package:whatidid/application/providers/controllers/language_controller.dart';
 import 'package:whatidid/application/providers/controllers/theme_controller.dart';
+import 'package:whatidid/data/daos/categories_dao.dart';
+import 'package:whatidid/domain/models/category.dart';
 import 'package:whatidid/presentation/app_localizations.dart';
 
 import 'widgets/button_widget.dart';
@@ -57,30 +59,71 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10),
-          ButtonWidget(
-            child: PopupMenuButton(
-              color: Theme.of(context).primaryColorLight,
-              itemBuilder: (context) {
-                return [
-                  PopupMenuItem(
-                    value: "Daily",
-                    child: Text("Daily"),
+          FutureBuilder<List<Category>>(
+            future: context.read(categoriesDaoProvider).getAll(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return ButtonWidget(
+                  child: PopupMenuButton(
+                    color: Theme.of(context).primaryColorLight,
+                    itemBuilder: (context) {
+                      return snapshot.data!
+                          .map(
+                            (e) => PopupMenuItem(
+                              value: e.name,
+                              child: Text(e.name),
+                            ),
+                          )
+                          .toList();
+                    },
+                    onSelected: (String value) {
+                      context
+                          .read(homeCategoryControllerProvider)
+                          .changeHomeCategory(value);
+                    },
+                    child: Row(
+                      children: [
+                        Icon(Icons.category),
+                        SizedBox(width: 5),
+                        Text(
+                          AppLocalizations.of(context)
+                              .translate("home_category"),
+                        ),
+                      ],
+                    ),
                   ),
-                ];
-              },
-              onSelected: (String value) {
-                context
-                    .read(homeCategoryControllerProvider)
-                    .changeHomeCategory(value);
-              },
-              child: Row(
-                children: [
-                  Icon(Icons.category),
-                  SizedBox(width: 5),
-                  Text(AppLocalizations.of(context).translate("home_category")),
-                ],
-              ),
-            ),
+                );
+              } else {
+                return ButtonWidget(
+                  child: PopupMenuButton(
+                    color: Theme.of(context).primaryColorLight,
+                    itemBuilder: (context) {
+                      return [
+                        PopupMenuItem(
+                          value: "Daily",
+                          child: Text("Daily"),
+                        ),
+                      ];
+                    },
+                    onSelected: (String value) {
+                      context
+                          .read(homeCategoryControllerProvider)
+                          .changeHomeCategory(value);
+                    },
+                    child: Row(
+                      children: [
+                        Icon(Icons.category),
+                        SizedBox(width: 5),
+                        Text(
+                          AppLocalizations.of(context)
+                              .translate("home_category"),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }
+            },
           ),
         ],
       ),
