@@ -5,7 +5,7 @@ import 'package:whatidid/application/providers/viewmodels/entries_viewmodel.dart
     hide State;
 import 'package:whatidid/presentation/widgets/empty_widget.dart';
 
-import 'widgets/entrie_widget.dart';
+import '../../widgets/entrie_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   final String category;
