@@ -15,6 +15,8 @@ class EntrieWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final length = entrie.content.length >= 20 ? 20 : entrie.content.length;
+
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, AppRoutes.ENTRIE, arguments: {
@@ -42,7 +44,7 @@ class EntrieWidget extends StatelessWidget {
                 Container(
                   width: 2,
                   height: 40,
-                  color: Colors.white,
+                  color: Theme.of(context).primaryTextTheme.bodyText1?.color,
                 ),
               ],
             ),
@@ -65,7 +67,7 @@ class EntrieWidget extends StatelessWidget {
                     ),
                     SizedBox(height: 15),
                     Text(
-                      "${entrie.content.substring(1, 20)}...",
+                      "${entrie.content.substring(1, length)}",
                       style: Theme.of(context).primaryTextTheme.bodyText1,
                     ),
                     SizedBox(height: 5),
