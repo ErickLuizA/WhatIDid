@@ -40,7 +40,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
     });
   }
 
-  bool get haveMenu => currentIndex == 2;
   bool get haveSearch => currentIndex == 0 || currentIndex == 1;
   bool get haveFab => currentIndex == 3 || currentIndex == 2;
 
@@ -63,7 +62,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
             title: screenNames[currentIndex],
             category: categories[currentIndex],
             context: context,
-            showMenu: haveMenu,
             showSearch: haveSearch,
           ),
           body: Builder(

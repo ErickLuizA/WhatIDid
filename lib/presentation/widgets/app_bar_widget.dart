@@ -6,7 +6,6 @@ class AppBarWidget extends AppBar {
     required String title,
     String? category,
     required BuildContext context,
-    required bool showMenu,
     required bool showSearch,
   }) : super(
           title: Text(
@@ -14,20 +13,6 @@ class AppBarWidget extends AppBar {
             style: Theme.of(context).primaryTextTheme.headline5,
           ),
           actions: [
-            if (showMenu)
-              PopupMenuButton(
-                icon: Icon(
-                  Icons.more_vert,
-                  color: Theme.of(context).primaryTextTheme.bodyText1?.color,
-                ),
-                itemBuilder: (context) {
-                  return [
-                    PopupMenuItem(
-                      child: Text('hello'),
-                    ),
-                  ];
-                },
-              ),
             if (showSearch)
               IconButton(
                 icon: Icon(
