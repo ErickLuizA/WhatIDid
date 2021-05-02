@@ -18,16 +18,34 @@ class LoadedState extends State {
   LoadedState(this.result);
 }
 
-class EntriesViewModel extends StateNotifier<State> {
+class CalendarViewModel extends StateNotifier<State> {
   final EntriesRepository _entriesRepository;
 
-  EntriesViewModel(this._entriesRepository) : super(InitialState());
+  CalendarViewModel(
+    this._entriesRepository,
+  ) : super(InitialState());
 
-  void getAll(String category) async {
+  void getMonthAll(DateTime dateTime) async {
     state = LoadingState();
 
     try {
-      final result = await _entriesRepository.getEntries(category);
+      final result = await _entriesRepository.getMonthAll(dateTime);
+
+      if (result.isEmpty) {
+        state = EmptyState();
+      } else {
+        state = LoadedState(result);
+      }
+    } catch (e) {
+      state = ErrorState();
+    }
+  }
+
+  void getDayAll(DateTime dateTime) async {
+    state = LoadingState();
+
+    try {
+      final result = await _entriesRepository.getDayAll(dateTime);
 
       if (result.isEmpty) {
         state = EmptyState();
@@ -40,9 +58,9 @@ class EntriesViewModel extends StateNotifier<State> {
   }
 }
 
-final entriesViewModelProvider =
-    StateNotifierProvider<EntriesViewModel, State>((ref) {
+final calendarViewModelProvider =
+    StateNotifierProvider<CalendarViewModel, State>((ref) {
   final repo = ref.watch(entriesRepositoryProvider);
 
-  return EntriesViewModel(repo);
+  return CalendarViewModel(repo);
 });

@@ -25,10 +25,46 @@ class EntriesDao {
     );
   }
 
-  Future<List<Entrie>> getAll(String category) async {
+  Future<List<Entrie>> getEntries(String category) async {
     final result = await _storeMap
         .query(finder: Finder(filter: Filter.equals('category', category)))
         .getSnapshots(_database);
+
+    return result.map((e) {
+      return Entrie.fromMap(e.value, id: e.key);
+    }).toList();
+  }
+
+  Future<List<Entrie>> getMonthAll(DateTime dateTime) async {
+    final result = await _storeMap.query(
+      finder: Finder(
+        filter: Filter.custom(
+          (record) {
+            final date = DateTime.parse(record.value['dateTime']);
+
+            return date.month == dateTime.month;
+          },
+        ),
+      ),
+    ).getSnapshots(_database);
+
+    return result.map((e) {
+      return Entrie.fromMap(e.value, id: e.key);
+    }).toList();
+  }
+
+  Future<List<Entrie>> getDayAll(DateTime dateTime) async {
+    final result = await _storeMap.query(
+      finder: Finder(
+        filter: Filter.custom(
+          (record) {
+            final date = DateTime.parse(record.value['dateTime']);
+
+            return date.day == dateTime.day;
+          },
+        ),
+      ),
+    ).getSnapshots(_database);
 
     return result.map((e) {
       return Entrie.fromMap(e.value, id: e.key);

@@ -11,8 +11,16 @@ class EntriesRepository {
     return await _entriesDao.insert(data);
   }
 
-  Future<List<Entrie>> getAll(String category) async {
-    return await _entriesDao.getAll(category);
+  Future<List<Entrie>> getEntries(String category) async {
+    return await _entriesDao.getEntries(category);
+  }
+
+  Future<List<Entrie>> getMonthAll(DateTime dateTime) async {
+    return await _entriesDao.getMonthAll(dateTime);
+  }
+
+  Future<List<Entrie>> getDayAll(DateTime dateTime) async {
+    return await _entriesDao.getDayAll(dateTime);
   }
 }
 
