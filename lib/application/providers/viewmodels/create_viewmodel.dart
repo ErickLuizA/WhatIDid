@@ -35,16 +35,6 @@ class CreateViewModel {
       return false;
     }
   }
-
-  Future<bool> delete(int id) async {
-    try {
-      await categoriesRepository.delete(id);
-
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
 }
 
 final createViewModelProvider = Provider<CreateViewModel>((ref) {

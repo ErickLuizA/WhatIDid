@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatidid/application/providers/viewmodels/categories_viewmodel.dart'
+    hide State, ErrorState, LoadedState, LoadingState, EmptyState;
 import 'package:whatidid/application/providers/viewmodels/entries_viewmodel.dart'
     hide State;
 import 'package:whatidid/domain/models/category.dart';
@@ -34,6 +36,43 @@ class _CategoryScreenState extends State<CategoryScreen> {
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         title: Text(widget.category.name),
+        actions: [
+          PopupMenuButton(
+            onSelected: (String selected) async {
+              if (selected == "delete") {
+                final res = await context
+                    .read(categoriesViewModelProvider.notifier)
+                    .delete(widget.category.id!);
+
+                if (res) {
+                  if (Navigator.canPop(context)) {
+                    await context
+                        .read(entriesViewModelProvider.notifier)
+                        .deleteAll(widget.category.name);
+
+                    context.read(categoriesViewModelProvider.notifier).getAll();
+
+                    Navigator.pop(context);
+                  }
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Error while trying to delete entrie"),
+                    ),
+                  );
+                }
+              }
+            },
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(
+                  value: "delete",
+                  child: Text("Delete"),
+                ),
+              ];
+            },
+          ),
+        ],
       ),
       body: ProviderListener(
         provider: entriesViewModelProvider,

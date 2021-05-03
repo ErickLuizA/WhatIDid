@@ -38,6 +38,20 @@ class EntriesViewModel extends StateNotifier<State> {
       state = ErrorState();
     }
   }
+
+  Future<bool> delete(int id) async {
+    try {
+      await _entriesRepository.delete(id);
+
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future<void> deleteAll(String category) async {
+    return await _entriesRepository.deleteAll(category);
+  }
 }
 
 final entriesViewModelProvider =

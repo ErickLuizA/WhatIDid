@@ -38,6 +38,16 @@ class CategoriesViewModel extends StateNotifier<State> {
       state = ErrorState();
     }
   }
+
+  Future<bool> delete(int id) async {
+    try {
+      await categoriesRepository.delete(id);
+
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
 }
 
 final categoriesViewModelProvider =

@@ -25,6 +25,15 @@ class EntriesDao {
     );
   }
 
+  Future<void> deleteAll(String category) async {
+    await _storeMap.delete(
+      _database,
+      finder: Finder(
+        filter: Filter.equals('category', category),
+      ),
+    );
+  }
+
   Future<List<Entrie>> getEntries(String category) async {
     final result = await _storeMap
         .query(finder: Finder(filter: Filter.equals('category', category)))

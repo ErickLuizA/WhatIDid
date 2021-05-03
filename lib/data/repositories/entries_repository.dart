@@ -11,6 +11,14 @@ class EntriesRepository {
     return await _entriesDao.insert(data);
   }
 
+  Future<void> delete(int id) async {
+    return await _entriesDao.delete(id);
+  }
+
+  Future<void> deleteAll(String category) async {
+    return await _entriesDao.deleteAll(category);
+  }
+
   Future<List<Entrie>> getEntries(String category) async {
     return await _entriesDao.getEntries(category);
   }
