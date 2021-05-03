@@ -67,7 +67,7 @@ class EntrieWidget extends StatelessWidget {
                     ),
                     SizedBox(height: 15),
                     Text(
-                      "${entrie.content.substring(1, length)}",
+                      "${entrie.content.substring(1, length)}...",
                       style: Theme.of(context).primaryTextTheme.bodyText1,
                     ),
                     SizedBox(height: 5),
