@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/search_category_widget.dart';
+import 'widgets/search_entrie_widget.dart';
+
 class SearchScreen extends StatelessWidget {
   final String? category;
 
@@ -9,13 +12,10 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(category);
-
-    // if category is null
-    // render search categories
-    // else render search category
-    return Scaffold(
-      appBar: AppBar(),
-    );
+    if (category == null) {
+      return SearchCategoryWidget();
+    } else {
+      return SearchEntrieWidget(category!);
+    }
   }
 }
