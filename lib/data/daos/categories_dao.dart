@@ -53,6 +53,24 @@ class CategoriesDao {
       return Category.fromMap(e.value, id: e.key);
     }).toList();
   }
+
+  Future<List<Category>> searchCategories(String name) async {
+    final result = await _storeMap.query(
+      finder: Finder(
+        filter: Filter.custom(
+          (record) {
+            final recordName = record.value['name'] as String;
+
+            return recordName.contains(name);
+          },
+        ),
+      ),
+    ).getSnapshots(_database);
+
+    return result.map((e) {
+      return Category.fromMap(e.value, id: e.key);
+    }).toList();
+  }
 }
 
 final categoriesDaoProvider = Provider<CategoriesDao>((ref) {

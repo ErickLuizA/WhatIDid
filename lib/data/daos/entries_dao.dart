@@ -34,6 +34,24 @@ class EntriesDao {
     );
   }
 
+  Future<List<Entrie>> searchEntries(String title) async {
+    final result = await _storeMap.query(
+      finder: Finder(
+        filter: Filter.custom(
+          (record) {
+            final recordTitle = record.value['title'] as String;
+
+            return recordTitle.contains(title);
+          },
+        ),
+      ),
+    ).getSnapshots(_database);
+
+    return result.map((e) {
+      return Entrie.fromMap(e.value, id: e.key);
+    }).toList();
+  }
+
   Future<List<Entrie>> getEntries(String category) async {
     final result = await _storeMap
         .query(finder: Finder(filter: Filter.equals('category', category)))

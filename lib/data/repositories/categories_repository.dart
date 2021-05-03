@@ -19,6 +19,10 @@ class CategoriesRepository {
   Future<List<Category>> getAll() async {
     return await _categoriesDao.getAll();
   }
+
+  Future<List<Category>> searchCategories(String name) async {
+    return await _categoriesDao.searchCategories(name);
+  }
 }
 
 final categoriesRepositoryProvider = Provider<CategoriesRepository>((ref) {

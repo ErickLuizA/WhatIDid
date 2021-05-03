@@ -23,6 +23,10 @@ class EntriesRepository {
     return await _entriesDao.getEntries(category);
   }
 
+  Future<List<Entrie>> searchEntries(String title) async {
+    return await _entriesDao.searchEntries(title);
+  }
+
   Future<List<Entrie>> getMonthAll(DateTime dateTime) async {
     return await _entriesDao.getMonthAll(dateTime);
   }
