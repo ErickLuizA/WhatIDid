@@ -5,6 +5,7 @@ import 'package:whatidid/application/providers/viewmodels/categories_viewmodel.d
 import 'package:whatidid/application/providers/viewmodels/entries_viewmodel.dart'
     hide State;
 import 'package:whatidid/domain/models/category.dart';
+import 'package:whatidid/presentation/app_localizations.dart';
 import 'package:whatidid/presentation/widgets/empty_widget.dart';
 import 'package:whatidid/presentation/widgets/entrie_widget.dart';
 import 'package:whatidid/presentation/widgets/fab_widget.dart';
@@ -57,7 +58,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text("Error while trying to delete entrie"),
+                      content: Text(AppLocalizations.of(context)
+                          .translate("error_deleting_entrie")),
                     ),
                   );
                 }
@@ -67,7 +69,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               return [
                 PopupMenuItem(
                   value: "delete",
-                  child: Text("Delete"),
+                  child: Text(AppLocalizations.of(context).translate("delete")),
                 ),
               ];
             },
@@ -80,7 +82,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
           if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text("Error loading entries"),
+                content: Text(AppLocalizations.of(context)
+                    .translate("error_loading_entries")),
               ),
             );
           }

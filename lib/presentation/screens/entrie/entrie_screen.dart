@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:whatidid/application/providers/viewmodels/entries_viewmodel.dart';
 import 'package:whatidid/domain/models/entrie.dart';
+import 'package:whatidid/presentation/app_localizations.dart';
 import 'package:whatidid/presentation/utils/num_to_month.dart';
 import 'package:whatidid/presentation/utils/num_to_weekday.dart';
 
@@ -46,8 +47,8 @@ class EntrieScreen extends StatelessWidget {
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              content:
-                                  Text("Error while trying to delete entrie"),
+                              content: Text(AppLocalizations.of(context)
+                                  .translate('error_deleting_entrie')),
                             ),
                           );
                         }
@@ -57,7 +58,8 @@ class EntrieScreen extends StatelessWidget {
                       return [
                         PopupMenuItem(
                           value: "delete",
-                          child: Text("Delete"),
+                          child: Text(
+                              AppLocalizations.of(context).translate('delete')),
                         ),
                       ];
                     },

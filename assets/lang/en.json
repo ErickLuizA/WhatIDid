@@ -12,5 +12,29 @@
     "press_the": "Press the",
     "to_add": "to add a",
     "entrie": "entrie",
-    "category": "category"
+    "category": "category",
+
+    "unexpect_error": "Unexpected error occurred",
+    "error_loading_categories": "Error Loading Categories",
+    "error_loading_entries": "Error Loading Entries",
+
+    "error_deleting_entrie": "Error while trying to delete entrie",
+    "delete": "Delete",
+
+    "create_category": "Create category",
+    "category_name": "Category name",
+    "click_to_add": "Click to add image",
+    "failure_add_category": "Failure in trying to add this category",
+    "submit": "Submit",
+
+    "fill_all": "Fill all fields",
+    "failure_add_entrie": "Failure in trying to add this entrie",
+    "content": "Content",
+    "title": "Title",
+    "create_entrie": "Create entrie in",
+
+    "search_category": "Search category",
+    "search_entrie": "Search entrie",
+    "error_search_category": "Error searching category",
+    "error_search_entrie": "Error searching entrie"
 }

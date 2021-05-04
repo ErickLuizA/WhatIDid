@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:whatidid/application/providers/viewmodels/search_viewmodel.dart';
-import 'package:whatidid/domain/models/category.dart';
 import 'package:whatidid/domain/models/entrie.dart';
+import 'package:whatidid/presentation/app_localizations.dart';
 import 'package:whatidid/presentation/widgets/entrie_widget.dart';
 
 class SearchEntrieWidget extends StatelessWidget {
@@ -18,7 +18,7 @@ class SearchEntrieWidget extends StatelessWidget {
       appBar: AppBar(
         title: TextField(
           decoration: InputDecoration(
-            hintText: 'Search entrie',
+            hintText: AppLocalizations.of(context).translate('search_entrie'),
             border: OutlineInputBorder(),
           ),
           autofocus: true,
@@ -39,7 +39,8 @@ class SearchEntrieWidget extends StatelessWidget {
           if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text("Error searching entrie"),
+                content: Text(AppLocalizations.of(context)
+                    .translate('error_search_entrie')),
               ),
             );
           }

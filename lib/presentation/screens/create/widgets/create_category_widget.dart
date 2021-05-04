@@ -7,6 +7,7 @@ import 'package:whatidid/application/providers/viewmodels/categories_viewmodel.d
     hide State;
 import 'package:whatidid/application/providers/viewmodels/create_viewmodel.dart';
 import 'package:whatidid/domain/models/category.dart';
+import 'package:whatidid/presentation/app_localizations.dart';
 
 class CreateCategoryWidget extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _CreateCategoryWidgetState extends State<CreateCategoryWidget> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: Text("Create category"),
+        title: Text(AppLocalizations.of(context).translate("create_category")),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -32,7 +33,8 @@ class _CreateCategoryWidgetState extends State<CreateCategoryWidget> {
             children: [
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Category name',
+                  hintText:
+                      AppLocalizations.of(context).translate("category_name"),
                   hintStyle: Theme.of(context).primaryTextTheme.bodyText1,
                   border: OutlineInputBorder(),
                 ),
@@ -85,7 +87,8 @@ class _CreateCategoryWidgetState extends State<CreateCategoryWidget> {
                               MediaQuery.of(context).size.height / 3,
                         ),
                         Text(
-                          "Click to add image",
+                          AppLocalizations.of(context)
+                              .translate("click_to_add"),
                           style: Theme.of(context).primaryTextTheme.headline5,
                         ),
                       ],
@@ -118,9 +121,10 @@ class _CreateCategoryWidgetState extends State<CreateCategoryWidget> {
                       if (!result) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content:
-                                Text("Failure in trying to add this category"),
-                          ),
+                              content: Text(
+                            AppLocalizations.of(context)
+                                .translate("failure_add_category"),
+                          )),
                         );
                       } else {
                         context
@@ -133,7 +137,7 @@ class _CreateCategoryWidgetState extends State<CreateCategoryWidget> {
                       }
                     }
                   },
-                  child: Text("Submit"),
+                  child: Text(AppLocalizations.of(context).translate("submit")),
                 ),
               ),
             ],

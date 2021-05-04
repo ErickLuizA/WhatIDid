@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatidid/application/providers/viewmodels/categories_viewmodel.dart'
     hide State;
+import 'package:whatidid/presentation/app_localizations.dart';
 import 'package:whatidid/presentation/widgets/empty_widget.dart';
 
 import 'widgets/category_widget.dart';
@@ -29,7 +30,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         if (state is ErrorState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text("Error loading categories"),
+              content: Text(
+                AppLocalizations.of(context)
+                    .translate("error_loading_categories"),
+              ),
             ),
           );
         }

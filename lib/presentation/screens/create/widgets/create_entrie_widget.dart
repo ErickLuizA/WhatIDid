@@ -7,6 +7,7 @@ import 'package:whatidid/application/providers/viewmodels/create_viewmodel.dart'
 import 'package:whatidid/application/providers/viewmodels/entries_viewmodel.dart'
     hide State;
 import 'package:whatidid/domain/models/entrie.dart';
+import 'package:whatidid/presentation/app_localizations.dart';
 
 class CreateEntrieWidget extends StatefulWidget {
   final String category;
@@ -30,7 +31,8 @@ class _CreateEntrieWidgetState extends State<CreateEntrieWidget> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: Text("Create entrie in ${widget.category}"),
+        title: Text(
+            "${AppLocalizations.of(context).translate('create_entrie')} ${widget.category}"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -41,7 +43,7 @@ class _CreateEntrieWidgetState extends State<CreateEntrieWidget> {
             children: [
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Title',
+                  hintText: AppLocalizations.of(context).translate("title"),
                   hintStyle: Theme.of(context).primaryTextTheme.bodyText1,
                   border: OutlineInputBorder(),
                 ),
@@ -56,7 +58,7 @@ class _CreateEntrieWidgetState extends State<CreateEntrieWidget> {
               SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Content',
+                  hintText: AppLocalizations.of(context).translate("content"),
                   hintStyle: Theme.of(context).primaryTextTheme.bodyText1,
                   border: OutlineInputBorder(),
                 ),
@@ -157,7 +159,8 @@ class _CreateEntrieWidgetState extends State<CreateEntrieWidget> {
                               MediaQuery.of(context).size.height / 3,
                         ),
                         Text(
-                          "Click to add image",
+                          AppLocalizations.of(context)
+                              .translate("click_to_add"),
                           style: Theme.of(context).primaryTextTheme.headline5,
                         ),
                       ],
@@ -202,8 +205,8 @@ class _CreateEntrieWidgetState extends State<CreateEntrieWidget> {
                       if (!result) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content:
-                                Text("Failure in trying to add this category"),
+                            content: Text(AppLocalizations.of(context)
+                                .translate("failure_add_entrie")),
                           ),
                         );
                       } else {
@@ -218,12 +221,13 @@ class _CreateEntrieWidgetState extends State<CreateEntrieWidget> {
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text("Fill all fields"),
+                          content: Text(AppLocalizations.of(context)
+                              .translate("fill_all")),
                         ),
                       );
                     }
                   },
-                  child: Text("Submit"),
+                  child: Text(AppLocalizations.of(context).translate("submit")),
                 ),
               ),
             ],

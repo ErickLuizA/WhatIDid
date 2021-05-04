@@ -101,7 +101,8 @@ class SettingsScreen extends StatelessWidget {
                       return [
                         PopupMenuItem(
                           value: "Daily",
-                          child: Text("Daily"),
+                          child: Text(
+                              AppLocalizations.of(context).translate('daily')),
                         ),
                       ];
                     },

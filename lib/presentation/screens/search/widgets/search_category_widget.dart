@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:whatidid/application/providers/viewmodels/search_viewmodel.dart';
 import 'package:whatidid/domain/models/category.dart';
 import 'package:whatidid/domain/models/entrie.dart';
+import 'package:whatidid/presentation/app_localizations.dart';
 import 'package:whatidid/presentation/screens/categories/widgets/category_widget.dart';
 
 class SearchCategoryWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class SearchCategoryWidget extends StatelessWidget {
       appBar: AppBar(
         title: TextField(
           decoration: InputDecoration(
-            hintText: 'Search category',
+            hintText: AppLocalizations.of(context).translate('search_category'),
             border: OutlineInputBorder(),
           ),
           autofocus: true,
@@ -35,7 +36,8 @@ class SearchCategoryWidget extends StatelessWidget {
           if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text("Error searching category"),
+                content: Text(AppLocalizations.of(context)
+                    .translate('error_search_category')),
               ),
             );
           }

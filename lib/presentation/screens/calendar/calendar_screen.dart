@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatidid/application/providers/viewmodels/calendar_viewmodel.dart'
     hide State;
+import 'package:whatidid/presentation/app_localizations.dart';
 import 'package:whatidid/presentation/widgets/entrie_widget.dart';
 
 class CalendarScreen extends StatefulWidget {
@@ -48,7 +49,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 if (state is ErrorState) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text("Unexpected error"),
+                      content: Text(
+                        AppLocalizations.of(context)
+                            .translate("unexpect_error"),
+                      ),
                     ),
                   );
                 }
@@ -77,7 +81,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
                     if (state is EmptyState) {
                       return Center(
-                        child: Text("Nothing on this day"),
+                        child: Text(
+                          AppLocalizations.of(context)
+                              .translate("nothing_here"),
+                        ),
                       );
                     }
 

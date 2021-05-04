@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:whatidid/application/providers/viewmodels/entries_viewmodel.dart'
     hide State;
+import 'package:whatidid/presentation/app_localizations.dart';
 import 'package:whatidid/presentation/widgets/empty_widget.dart';
 
 import '../../widgets/entrie_widget.dart';
@@ -34,7 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
         if (state is ErrorState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text("Error loading entries"),
+              content: Text(AppLocalizations.of(context)
+                  .translate('error_loading_entries')),
             ),
           );
         }
