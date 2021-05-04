@@ -1,0 +1,40 @@
+{
+    "home": "Início",
+    "categories": "Categorias",
+    "calendar": "Calendário",
+    "settings": "Configurações",
+    "daily": "Diário",
+    "dark_theme": "Tema Escuro",
+    "language": "Linguagem",
+    "home_category": "Categoria do Início",
+
+    "nothing_here": "Não tem nada por aqui",
+    "press_the": "Pressione o",
+    "to_add": "para adicionar uma",
+    "entrie": "entrada",
+    "category": "categoria",
+
+    "unexpect_error": "Ocorreu um erro inesperado",
+    "error_loading_categories": "Erro ao carregar categorias",
+    "error_loading_entries": "Erro ao carregar entradas",
+
+    "error_deleting_entrie": "Erro ao deletar entrada",
+    "delete": "Deletar",
+
+    "create_category": "Criar categoria",
+    "category_name": "Nome da categoria",
+    "click_to_add": "Click para adicionar imagem",
+    "failure_add_category": "Erro ao adicionar categoria",
+    "submit": "Confirmar",
+
+    "fill_all": "Preencha todos os campos",
+    "failure_add_entrie": "Erro ao adicionar uma entrada",
+    "content": "Conteúdo",
+    "title": "Título",
+    "create_entrie": "Criar entrada em",
+
+    "search_category": "Procurar categoria",
+    "search_entrie": "Procurar entrada",
+    "error_search_category": "Erro procurando categoria",
+    "error_search_entrie": "Erro procurando entrada"
+}
