@@ -15,57 +15,57 @@ class EntrieScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width / 3;
     final height = MediaQuery.of(context).size.height / 4;
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(height),
-        child: Stack(
-          children: [
-            AppBar(
-              actions: [
-                PopupMenuButton(
-                  onSelected: (String selected) async {
-                    if (selected == "delete") {
-                      final res = await context
-                          .read(entriesViewModelProvider.notifier)
-                          .delete(entrie.id!);
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Center(child: showImage(context)),
+              AppBar(
+                backgroundColor: Colors.transparent,
+                actions: [
+                  PopupMenuButton(
+                    onSelected: (String selected) async {
+                      if (selected == "delete") {
+                        final res = await context
+                            .read(entriesViewModelProvider.notifier)
+                            .delete(entrie.id!);
 
-                      if (res) {
-                        if (Navigator.canPop(context)) {
-                          context
-                              .read(entriesViewModelProvider.notifier)
-                              .getAll(entrie.category);
+                        if (res) {
+                          if (Navigator.canPop(context)) {
+                            context
+                                .read(entriesViewModelProvider.notifier)
+                                .getAll(entrie.category);
 
-                          Navigator.pop(context);
+                            Navigator.pop(context);
+                          }
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content:
+                                  Text("Error while trying to delete entrie"),
+                            ),
+                          );
                         }
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content:
-                                Text("Error while trying to delete entrie"),
-                          ),
-                        );
                       }
-                    }
-                  },
-                  itemBuilder: (context) {
-                    return [
-                      PopupMenuItem(
-                        value: "delete",
-                        child: Text("Delete"),
-                      ),
-                    ];
-                  },
-                ),
-              ],
-            ),
-            Center(
-              child: showImage(context, width, height),
-            ),
-          ],
+                    },
+                    itemBuilder: (context) {
+                      return [
+                        PopupMenuItem(
+                          value: "delete",
+                          child: Text("Delete"),
+                        ),
+                      ];
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       body: Padding(
@@ -130,14 +130,18 @@ class EntrieScreen extends StatelessWidget {
     );
   }
 
-  Widget showImage(BuildContext context, double width, double height) {
+  Widget showImage(BuildContext context) {
     if (entrie.image == null) {
       return SvgPicture.asset(
         'assets/images/notebook.svg',
+        width: double.infinity,
+        fit: BoxFit.cover,
       );
     } else {
       return Image.file(
         File(entrie.image!),
+        width: double.infinity,
+        fit: BoxFit.cover,
         errorBuilder: (
           BuildContext context,
           Object exception,
