@@ -89,7 +89,8 @@ $ flutter run
 
 ## :information_source: TODO
   - Tests
-  - Be able to add new categories and levels through either online to offline synchronization using firebase or just put more in the database seeds and use UOA.
+  - Add notifications
+  - Edit option
 
 ## :memo: License
 
