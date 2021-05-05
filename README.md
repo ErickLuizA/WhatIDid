@@ -1,4 +1,4 @@
-<h1 align="center"> whatidid </h1>
+<h1 align="center"> WhatIDid </h1>
 
 <p align="center">
   <a href="https://github.com/ErickLuizA/whatidid/graphs/commit-activity" alt="Maintenance">
@@ -36,9 +36,14 @@ whatidid is a diary app built with flutter
 ## :building_construction: Technologies
 
 - [Flutter](https://flutter.dev/)
-  - [shared_preferences](https://pub.dev/packages/shared_preferences)
-  - [equatable](https://pub.dev/packages/equatable)
+  - [flutter_riverpod](https://pub.dev/packages/flutter_riverpod)
   - [flutter_svg](https://pub.dev/packages/flutter_svg)
+  - [file_picker](https://pub.dev/packages/file_picker)
+  - [path](https://pub.dev/packages/path)
+  - [path_provider](https://pub.dev/packages/path_provider)
+  - [sembast](https://pub.dev/packages/sembast)
+  - [shared_preferences](https://pub.dev/packages/shared_preferences)
+  - [equatable](https://pub.dev/packages/equatable)  
 
 
 ## :rocket: Getting Started
@@ -90,7 +95,7 @@ $ flutter run
 ## :information_source: TODO
   - Tests
   - Add notifications
-  - Edit option
+  - Edit option for entries and categories
 
 ## :memo: License
 

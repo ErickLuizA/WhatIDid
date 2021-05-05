@@ -16,8 +16,6 @@ dependencies:
 
   flutter_svg: ^0.22.0
 
-  flutter_local_notifications: ^5.0.0+1
-
   file_picker: ^3.0.1
 
   path: ^1.8.0
@@ -25,9 +23,7 @@ dependencies:
   sembast: ^3.0.2
   shared_preferences: ^2.0.5
 
-  equatable: ^2.0.0
-  dartz: ^0.10.0-nullsafety.1
-  
+  equatable: ^2.0.0  
 
   flutter_localizations:
     sdk: flutter
