@@ -1,7 +1,7 @@
-<h1 align="center"> WhatIDid </h1>
+<h1 align="center"> flutter-diary-app </h1>
 
 <p align="center">
-  <a href="https://github.com/ErickLuizA/whatidid/graphs/commit-activity" alt="Maintenance">
+  <a href="https://github.com/ErickLuizA/flutter-diary-app/graphs/commit-activity" alt="Maintenance">
     <img src="https://img.shields.io/badge/Maintained%3F-yes-1EAE72.svg" />
   </a>
 
@@ -11,12 +11,12 @@
 
 <br/>
 
-<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ErickLuizA/whatidid?color=blue">
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ErickLuizA/flutter-diary-app?color=blue">
 
-<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/ErickLuizA/whatidid">
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/ErickLuizA/flutter-diary-app">
 
-<a href="https://github.com/ErickLuizA/whatidid/stargazers">
-  <img alt="GitHub stars" src="https://img.shields.io/github/stars/ErickLuizA/whatidid?style=social">
+<a href="https://github.com/ErickLuizA/flutter-diary-app/stargazers">
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/ErickLuizA/flutter-diary-app?style=social">
 </a>
 
 <p align="center">
@@ -27,11 +27,9 @@
   <a href="#framed_picture-screenshots">Screenshots</a>
 </p>
 
-
 ## :clipboard: Description
 
-whatidid is a diary app built with flutter
-
+flutter-diary-app is a diary app built with flutter
 
 ## :building_construction: Technologies
 
@@ -43,29 +41,28 @@ whatidid is a diary app built with flutter
   - [path_provider](https://pub.dev/packages/path_provider)
   - [sembast](https://pub.dev/packages/sembast)
   - [shared_preferences](https://pub.dev/packages/shared_preferences)
-  - [equatable](https://pub.dev/packages/equatable)  
-
+  - [equatable](https://pub.dev/packages/equatable)
 
 ## :rocket: Getting Started
 
 ## 1. Download the repository
 
 ```shell
- $ git clone https://github.com/ErickLuizA/whatidid.git
-  
-  or 
+ $ git clone https://github.com/ErickLuizA/flutter-diary-app.git
 
- $ gh repo clone ErickLuizA/whatidid
+  or
+
+ $ gh repo clone ErickLuizA/flutter-diary-app
 ```
 
 ## 2. Installation
 
 ```shell
 # Go into the repository
-$ cd whatidid
+$ cd flutter-diary-app
 
 # Install dependencies
-$ flutter pub get 
+$ flutter pub get
 
 # or just use your IDE
 ```
@@ -81,25 +78,24 @@ $ flutter run
 ## :framed_picture: Screenshots
 
 <div>
-  <img alt="whatidid screen" src="./.github/Home.png"  width="200"/>
-  <img alt="whatidid screen" src="./.github/Categories.png"  width="200"/>
-  <img alt="whatidid screen" src="./.github/Calendar.png"  width="200"/>
-  <img alt="whatidid screen" src="./.github/Settings.png"  width="200"/>
-  <img alt="whatidid screen" src="./.github/Create_entrie.png"  width="200"/>
-  <img alt="whatidid screen" src="./.github/Entrie.png"  width="200"/>
-  <img alt="whatidid screen" src="./.github/Home1.png"  width="200"/>
-  <img alt="whatidid screen" src="./.github/Create_category.png"  width="200"/>
-  <img alt="whatidid screen" src="./.github/Search.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Home.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Categories.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Calendar.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Settings.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Create_entrie.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Entrie.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Home1.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Create_category.png"  width="200"/>
+  <img alt="flutter-diary-app screen" src="./.github/Search.png"  width="200"/>
 </div>
 
 ## :information_source: TODO
-  - Tests
-  - Add notifications
-  - Edit option for entries and categories
+
+- Tests
+- Add notifications
+- Edit option for entries and categories
 
 ## :memo: License
-
-
 
 This project is under the MIT license. See the file [LICENSE](LICENSE) for more details.
 

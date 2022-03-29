@@ -12,6 +12,7 @@ class AppBarWidget extends AppBar {
             title,
             style: Theme.of(context).primaryTextTheme.headline5,
           ),
+          backgroundColor: Theme.of(context).primaryColor,
           actions: [
             if (showSearch)
               IconButton(
